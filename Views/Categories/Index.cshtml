@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Mvc_Models.Models.Category>
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>Categories</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.ID</td>
+                <td>@category.Name</td>
+                <td>
+                    <a class="btn btn-primary text-white" asp-action="Edit" asp-route-Id="@category.ID">Edit</a>
+                    <a class="btn btn-primary text-white" asp-action="Delete" asp-route-Id="@category.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary text-white" asp-action="Create">Add New Category</a>

@@ -1,0 +1,15 @@
+﻿@model Mvc_Models.Models.Category
+
+@{
+    ViewBag.Title = "Delete Category";
+}
+
+<h2>Delete Category</h2>
+
+<p>Are you sure you want to delete the category "<strong>@Model.Name</strong>"?</p>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index", "Categories")" class="btn btn-secondary">Cancel</a>
+</form>
